@@ -1,5 +1,5 @@
 import torch
-from torchprofile import profile_macs  # MACs 계산 라이브러리
+# from torchprofile import profile_macs  # MACs 계산 라이브러리
 from model import Network  # 모델 정의 가져오기
 
 # 모델 로드 후 GPU로 이동
@@ -7,7 +7,10 @@ model = Network()
 model = model.cuda()
 
 # 입력 크기 정의 (예: 720x1080 이미지, 채널 3)
-input_size = (720, 1080)
+# input_size = (720, 1080)
+# input_size = (832, 658) # Exdark
+input_size = (900, 1600) # nuImages
+
 dummy_input = torch.randn(1, 3, *input_size).cuda()
 
 # 초기 더미 실행: 100번 실행하여 GPU 관련 오버헤드 제거
